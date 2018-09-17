@@ -55,5 +55,12 @@
 - 封装
 - 多态
 
-
- 
+## 6.1 封装
+- 封装就是对成员进行访问限制
+- 私有
+            class Person():
+	        name = "liu" #公有
+	            #—__age私有、
+	         __age = 12
+	- Python私有不是真的私有，是一种name mangling的改名策略         
+    - 可以使用对象。 _classname_attributename访问

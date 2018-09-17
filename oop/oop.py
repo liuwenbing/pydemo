@@ -129,3 +129,14 @@
 # #此时，传入的是类的实例B，因为具有name和age属性，所以不会报错
 # #A.say(B)
 
+##私有变量
+class Person():
+	name = "liu" #公有
+	#—__age私有、
+	__age = 12
+
+p = Person()
+print(p.name)
+
+p.Person__age = 18
+print(p.Person__age)
