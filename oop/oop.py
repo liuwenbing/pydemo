@@ -258,27 +258,27 @@
 
 
 ##
-
-class Animal():
-	def __init__(self):
-		print("animals")
-
-class Paxin(Animal):
-	def __init__(self,name):
-		print("paxing dongwu {0}".format(name))
-
-class Dog(Paxin):
-	##__init__就是构造函数
-	#每次实例化的时候，第一个被调用
-	#因为主要工作是进行初始化，所以得名
-	def __init__(self):
-		print("i an aaa")
-
-
-
-#实例话的时候，自动调用dog的构造函数.
-kaka = Dog()
-
+#
+# class Animal():
+# 	def __init__(self):
+# 		print("animals")
+#
+# class Paxin(Animal):
+# 	def __init__(self,name):
+# 		print("paxing dongwu {0}".format(name))
+#
+# class Dog(Paxin):
+# 	##__init__就是构造函数
+# 	#每次实例化的时候，第一个被调用
+# 	#因为主要工作是进行初始化，所以得名
+# 	def __init__(self):
+# 		print("i an aaa")
+#
+#
+#
+# #实例话的时候，自动调用dog的构造函数.
+# kaka = Dog()
+#
 
 
 #此时应该自动调用爬行的构造函数
