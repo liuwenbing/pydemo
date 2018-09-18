@@ -101,4 +101,4 @@
     - super不是关键字，而是一个类
     - super的作用是获取MRO(MethodResolustionOrder)列表中的第一个类
     - super 于父类直接没有任何的实质性关系，但通过super可以调用到父类
-    - super 使用两个方法，参见构造函数中调用父类的构造函数    
+    - super 使用两个方法，参见构造函数中调用父类的构造函数      
