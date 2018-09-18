@@ -130,13 +130,164 @@
 # #A.say(B)
 
 ##私有变量
-class Person():
-	name = "liu" #公有
-	#—__age私有、
-	__age = 12
+# class Person():
+# 	name = "liu" #公有
+# 	#—__age私有、
+# 	__age = 12
+#
+# p = Person()
+# print(p.name)
+#
+# p.Person__age = 18
+# print(p.Person__age)
 
-p = Person()
-print(p.name)
+##类继承的语法
 
-p.Person__age = 18
-print(p.Person__age)
+##子类和父类同一个名称，优先使用子类的
+# class Person():
+# 	name = "human"
+# 	__age = 18
+# 	__score = 0      #私有的
+# 	_petname = "sec" #小名受保护的。不可以公有
+# 	def sleep(self):
+# 		print("sleep...")
+#
+# #父类写在括号内
+# class Teacher(Person):
+# 	teacher_id = "111"
+# 	name = "hh"
+# 	def make_test(self):
+# 		print("do test")
+#
+#
+#
+# t = Teacher()
+# print(t.name)
+#
+# #print(Teacher.name)
+#
+# print(t._petname)
+# print(t.teacher_id)
+# t.make_test()
+
+##公开访问私有会报错
+#print(t.__score)
+
+
+#子类扩充父类功能
+
+# class Person():
+# 	name = "human"
+# 	__age = 18
+# 	__score = 0  # 私有的
+# 	_petname = "sec"  # 小名受保护的。不可以公有
+#
+# 	def sleep(self):
+# 		print("sleep...")
+# 	def work(self):
+# 		print("make money..")
+#
+#
+#
+# # 父类写在括号内
+# class Teacher(Person):
+# 	teacher_id = "111"
+# 	name = "hh"
+#
+# 	def make_test(self):
+# 		print("attention")
+#
+# 	def work(self):
+# 		#扩充父类的功能，只需调用父类相应的函数  1
+# 		#Person.work(self)
+# 		#super代表得到父类   2
+# 		super().work()
+# 		self.make_test()
+#
+# t = Teacher()
+#
+# t.work()
+#
+#make money..
+#attention
+
+
+##构造函数类
+# class Dog():
+# 	##__init__就是构造函数
+# 	#每次实例化的时候，第一个被调用
+# 	#因为主要工作是进行初始化，所以得名
+# 	def __init__(self):
+# 		print("i an aaa")
+#
+#
+#
+# 实例化的时候括号内的参数需要很构造函数以牙膏
+# kaka = Dog()
+
+
+##继承中的构造函数
+
+# class Animal():
+# 	def __init__(self):
+# 		print("animals")
+#
+# class Paxin(Animal):
+# 	pass
+#
+# class Dog(Paxin):
+# 	##__init__就是构造函数
+# 	#每次实例化的时候，第一个被调用
+# 	#因为主要工作是进行初始化，所以得名
+# 	def __init__(self):
+# 		print("i an aaa")
+#
+#
+#
+# #实例话的时候，自动调用dog的构造函数
+# #因为找到构造函数，则不在查找父类的构造函数
+# kaka = Dog()
+
+#
+# class Mao(Paxin):
+# 	pass
+#
+# #此时应该自动调用爬行的构造函数
+#
+# c = Mao()
+
+
+##
+
+class Animal():
+	def __init__(self):
+		print("animals")
+
+class Paxin(Animal):
+	def __init__(self,name):
+		print("paxing dongwu {0}".format(name))
+
+class Dog(Paxin):
+	##__init__就是构造函数
+	#每次实例化的时候，第一个被调用
+	#因为主要工作是进行初始化，所以得名
+	def __init__(self):
+		print("i an aaa")
+
+
+
+#实例话的时候，自动调用dog的构造函数.
+kaka = Dog()
+
+
+
+#此时应该自动调用爬行的构造函数
+
+## 因为paxin需要构造2个参数，实例话只给了一个，会报错
+class Mao(Paxin):
+	def __init__(self):
+		pass
+
+c = Mao()
+
+
