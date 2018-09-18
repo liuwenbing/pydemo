@@ -284,10 +284,10 @@
 #此时应该自动调用爬行的构造函数
 
 ## 因为paxin需要构造2个参数，实例话只给了一个，会报错
-class Mao(Paxin):
-	def __init__(self):
-		pass
-
-c = Mao()
+# class Mao(Paxin):
+# 	def __init__(self):
+# 		pass
+#
+# c = Mao()
 
 
