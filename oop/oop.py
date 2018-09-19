@@ -294,3 +294,191 @@
 
 
 ##SQewqewqewqew
+
+##单继承 多继承
+#子类可以拥有父类的属性和方法，私有除外
+# class Fish():
+# 	def __init__(self,name):
+# 		self.name = name
+# 	def swim(self):
+# 		print("i am swim")
+#
+# class Bird():
+# 	def __init__(self,name):
+# 		self.name = name
+# 	def fly(self):
+# 		print("i am fly")
+#
+# class Person():
+# 	def __init__(self, name):
+# 		self.name = name
+#
+# 	def work(self):
+# 		print("i am work")
+#
+# class SuperMan(Person,Bird,Fish):
+# 	def __init__(self, name):
+#		self.name = name
+
+
+
+# yue = SuperMan("yuyu")
+# yue.fly()
+# yue.swim()
+
+# 构造函数
+# class Person():
+# 	def __init__(self):
+# 		self.name = "qqq"
+# 		self.age  = 18
+# 		self.address ="anjui"
+# 		print("in init func")
+#
+# #实例化一个人
+# a = Person()
+# print(a.name)
+
+##构造函数的调用顺序，子类没有构造函数，自动向上查找
+##此时会出现参数错误
+# class A():
+# 	def __init__(self):
+# 		print("AAAA")
+#
+# class B(A):
+# 	def __init__(self,name):
+# 		self.name = name
+# 		print("B")
+#
+# class C(B):
+# 	pass
+#
+#
+# c = C()
+# print(c)
+
+##构造函数3
+#
+# class A():
+# 	def __init__(self):
+# 		print("AAAA")
+#
+# class B(A):
+# 	def __init__(self,name):
+# 		self.name = name
+# 		print("B")
+#
+# class C(B):
+	##c想扩展b的构造函数，即在B的构造函数后添加一些功能
+	##由2种方法
+	##第一种是通过父类名调用
+	# def __init__(self,name):
+	# 	#首先调用父类函数
+	# 	B.__init__(self,name)
+	# 	#其次添加自己的功能
+	# 	print("c中附加的功能")
+
+# 	#第二种
+# 	def __init__(self,name):
+# 		super(C,self).__init__(name)
+#
+# 	print("c中附加的功能")
+#
+#
+#
+# c = C("wo")
+# print(c)
+
+
+##MIxin案例
+#
+# class Person():
+# 	name = "aa"
+# 	age = 18
+# 	def eat(self):
+# 		print("eat...")
+# 	def drink(self):
+# 		print("drink...")
+# 	def sleep(self):
+# 		print("sleep...")
+#
+#
+# class Teacher(Person):
+# 	def work(self):
+# 		print("work...")
+# class Student(Person):
+# 	def study(self):
+# 		print("study..")
+#
+# class Turto(Teacher,Student):
+# 	pass
+#
+# t = Turto()
+#
+# print(Turto.__mro__)
+#
+# print(t.__dict__)
+# print(Turto.__dict__)
+#
+# print("*"*30)
+#
+# class TeacherMixin():
+# 	def work(self):
+# 		print("work .....")
+#
+# class StudentMixin():
+# 	def study(self):
+# 		print("study..")
+#
+# class TurtorMixin(Person,TeacherMixin,StudentMixin):
+# 	pass
+#
+# tt  =TeacherMixin()
+# print(TurtorMixin.__mro__)
+# print(tt.__dict__)
+# print(TurtorMixin.__dict__)
+#
+
+
+#issubclass
+# class A():
+# 	pass
+#
+# class B(A):
+# 	pass
+#
+# class C():
+# 	pass
+#
+#
+#
+# print(issubclass(B,A))
+#
+# print(issubclass(C,A))
+#
+# print(issubclass(C,object))
+
+#isinstance
+#
+# class A():
+# 	pass
+#
+# a = A()
+#
+# print(isinstance(a,A))
+#
+# print(isinstance(A,A))
+
+#hassttr
+
+# class A():
+# 	name ="33"
+#
+#
+# a = A()
+#
+# print(hasattr(a,"name"))
+#
+# print(hasattr(a,"age"))
+
+
+
