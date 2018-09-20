@@ -670,3 +670,166 @@
 # yue.play()
 # #静态方法
 # yue.say()
+
+
+#变量的三种方法
+# class A():
+# 	def __init__(self):
+# 		self.name = "fafa"
+# 		self.age = 19
+#
+# a =A()
+#
+# #类的三种当法  赋值 读取  删除
+# a.name = "liu"
+# print(a.name)
+
+# 类属性 property
+# 对变量除了普通三种操作，还想增加一些附加操作，name可以通过property完成
+
+# class A():
+# 	def __init__(self):
+# 		self.name = "fafa"
+# 		self.age = 19
+#
+# 	# 模拟的是对变量进行读取操作的时候执行功能
+#
+# 	def fget(self):
+# 		print("我读取了")
+# 		return  self.name
+# 	# 模拟的是对变量进行写操作的时候完成的功能
+# 	def fset(self,name):
+# 		print("我被磕=写入了")
+# 		self.name = "tulin" +name
+# 	#进行的是删除操作
+# 	def fdel(self):
+# 		pass
+# 	#property的四个参数位置是固定的
+# 	#第一个参数代表读取
+# 	#第二个代表写入
+# 	#第三个代表删除
+# 	name2 = property(fget,fset,fdel,"这是一个property的例子")
+# a =A()
+# #print(a.name)
+# print(a.name2)
+#
+
+
+##抽象方法
+# class Animal():
+# 	#
+# 	def sayHello(self):
+# 		pass
+#
+#
+# class Dog(Animal):
+# 	def sayHello(self):
+#
+# 		print("闻一下")
+#
+# class Person(Animal):
+# 	def sayHello(self):
+#
+# 		print("kiss me")
+# d = Dog()
+# d.sayHello()
+#
+# p = Person()
+# p.sayHello()
+
+
+#抽象类实现
+# import  abc
+# # #声明一个类并且指定当前类的元素
+# # class Human(metaclass=abc.ABCMeta):
+# #
+# # 	# d定定义类的抽象方法
+# # 	@abc.abstractmethod
+# # 	def drink(self):
+# # 		pass
+# # 	#定义抽象方法
+# # 	@abc.abstractclassmethod
+# # 	def smoking(cls):
+# # 		pass
+# #
+# # 	#定义静态方法
+# # 	@abc.abstractstaticmethod
+# # 	def work():
+# # 		pass
+# # 	def sleep(self):
+# # 		print("smoking....")
+
+
+
+## h函数名当作变量来用
+# def sayHello(name):
+# 	print("hello {0} ,可以来一发吗？".format(name))
+# sayHello("yueyu")
+# lium = sayHello
+# lium("ll")
+
+
+##自己组装一个类
+# class A():
+# 	pass
+# 	def say(self):
+# 		print("saying...")
+#
+# 	say(9)
+#
+# a = A()
+# A.say =say
+
+# from types import MethodType
+# class A():
+# 	pass
+# def say(self):
+# 		print("saying...")
+#
+#
+# a = A()
+# a.say =MethodType(say ,A)
+# a.say()
+#
+# help(type)
+
+##利用type造一个类
+#
+# def say(self):
+# 	print("saying...")
+#
+# def talk(self):
+# 	print("talking...")
+#
+# #zaolei
+#
+# A = type("AName",(object, ),{"class_say":say,"class_talk":talk})
+#
+#
+# a  =A()
+#
+#
+# a.class_say
+
+
+##元类演示、
+
+#元类是固定的，必须继承type
+#一般是命名TulinMetaClass结尾
+#
+# class TulinMetaClass(type):
+# 	#注意一下写法
+# 	def __new__(cls, name, bases,attrs):
+# 		#自己的业务代码
+# 		print("哈哈哈")
+# 		attrs['id'] = 1
+# 		attrs['addr'] ="ajdahi"
+# 		return  type.__new__(cls,name,bases,attrs)
+#
+# #元类定义玩就可以使用，
+# class Teacher(object,metaclass=TulinMetaClass):
+# 	pass
+# t = Teacher()
+#
+# t.__dict__
+# print(t.id)
