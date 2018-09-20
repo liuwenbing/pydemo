@@ -482,3 +482,191 @@
 
 
 
+##属性案例
+##创建student类，描述学生，
+##可以增加一个
+# class Student():
+# 	def __init__(self,name,age):
+# 		self.name = name
+# 		self.age = age
+#
+# 		#如果不想修改代码
+# 		self.setName(name)
+#
+# 	#介绍自己
+# 	def info(self):
+# 		print(" hai , my name is {}".format(self.name))
+# 	def setName(self,name):
+# 		self.name = name.upper()
+#
+# s1 = Student("Liu",19)
+# s2 = Student("mii",30)
+#
+# s1.info()
+# s2.info()
+
+##属性案例-property
+#定义一个person类，具有name age属性
+#pproperty
+# class Person():
+# 	def fget(self):
+# 		return  self._name *2
+#
+# 	def fset(self,name):
+# 		self._name =  name.upper()
+#
+# 	def fdel(self):
+# 		self._name = "NOname"
+#
+# 	name = property(fget,fset,fdel,"对name操作")
+#
+# p1 = Person()
+#
+# p1.name ="tulin"
+#
+# print(p1.name)
+
+##类的内置属性
+
+# class Person():
+# 	def fget(self):
+# 		return  self._name *2
+#
+# 	def fset(self,name):
+# 		self._name =  name.upper()
+#
+# 	def fdel(self):
+# 		self._name = "NOname"
+#
+# 	name = property(fget,fset,fdel,"对name操作")
+#
+# p1 = Person()
+#
+#
+# print(Person.__dict__)
+# print(Person.__doc__)
+# print(Person.__name__)
+# print(Person.__bases__)
+
+##魔术方法
+
+# class A():
+# 	def __init__(self,name=0):
+# 		print("我被调用")
+#
+#
+# a = A()
+#
+# print(a)
+
+##__call__
+# class A():
+# 	def __init__(self,name=0):
+# 		print("我被调用")
+#
+# 	def __call__(self):
+# 		print("我又被调用了")
+# a = A()
+# ##函数当作实例调用
+# a()
+
+##__str_
+#
+# class A():
+# 	def __init__(self,name=0):
+# 		print("我被调用")
+#
+# 	def __call__(self):
+# 		print("我又被调用了")
+#
+# 	def __str__(self):
+# 		return  "uhuhuhu"
+#
+#
+#
+# a = A()
+#
+# print(a)
+
+##__getattr
+
+
+# class A():
+#
+# 	name="qq"
+# 	age = 12
+# 	def __getattr__(self, name):
+# 		print("我被调用")
+# 		print(name)
+#
+# a = A()
+# print(a.name)
+# print(a.addr)
+
+
+###__asetattr__
+# class Person():
+# 	def __init__(self):
+# 		pass
+# 	def __setattr__(self, name, value):
+# 		print("没有设置属性 {0}".format(name))
+#
+# 		#下面一句话会导致死循环
+# 		###self.name = value
+#
+# 	##为避免死循环，操作方法，规定调用父类魔术函数
+# 		super().__setattr__(name,value)
+
+#
+#
+#
+# p = Person()
+# print(p.__dict__)
+# p.age = 18
+
+
+
+##__gt__
+
+# class Student():
+# # 	def __init__(self,name):
+# # 		self.name = name
+# #
+# # 	def __gt__(self, obj):
+# # 		print("哈哈，{0} 比 {1} 大吗？".format(self,obj))
+# # 		return self._name > self._name
+# #
+# #
+# # stu1 = Student("one")
+# # stu2 = Student("two")
+# #
+# # print(stu1>stu2)
+
+
+##三种方法案例
+
+# class Person():
+# 	#实例化方法
+# 	def eat(self):
+# 		print(self)
+# 		print("eating...")
+# 	#类方法
+# 	#类方法的第一个参数，一般会命名cls，区别于self
+# 	@classmethod
+# 	def play(cls):
+# 		print(cls)
+# 		print("clsing.....")
+# 	#静态方法，没有参数
+# 	#不需要第一个参数表示自身
+# 	@staticmethod
+# 	def say():
+# 		print("say,,...")
+#
+#
+# yue = Person()
+# #实例方法
+# yue.eat()
+# #类方法
+# yue.play()
+# #静态方法
+# yue.say()
