@@ -129,10 +129,108 @@
 
 
 ## 返回函数
-def myF(a):
-	print(" in my")
-	return  None
+# def myF(a):
+# 	print(" in my")
+# 	return  None
+#
+#
+# a = myF(8)
+# print(a)
+
+#负责一点的返回函数 的例子
+#args :参数列表
+#1,myf4定义函数，返回内部定义的函数myf5
+#2myf5使用类外部变量，这个变量是myf4 的参数
+# def myF4( *args):
+# 	def myF5():
+# 		rst =0
+# 		for n in args:
+# 			rst +=n
+# 		return rst
+# 	return myF5
+#
+# f5 = myF4(1,2,3,4,5,6,7)
+# #f5的调用方式
+# print(f5())
 
 
-a = myF(8)
-print(a)
+##闭包（closure)
+#当一个函数在内部定义函数，并且内部的函数应用外部函数的参数
+#或者局部变量，当内部函数被当作返回值的时候，相关参数和变量
+#保存在返回的函数中，这种结果，叫做闭包
+#上面定义的myf4是一个标准的闭包结构
+#闭包常见的坑
+
+# def count():
+# 	#定义列表,列表中存放的死定义的函数
+# 	fs = []
+# 	for i in range(1,4):
+# 		#定义一个函数
+# 		def f():
+# 			return  i*i
+# 		fs.append(f)
+# 	return  fs
+
+
+# ##装饰器
+# def hello():
+# 	print("hello world")
+#
+#
+# #hello()
+# p= hello
+# p()
+
+##现在的新需求，
+#对hello功能进行扩展，每次打印hello之前打印当前的系统时间
+#而实现这个功能又不能改动现有的代码
+
+
+
+###装饰器
+#再不改动函数代码的基础上无限制扩展函数的一种机制，装饰器是一个返沪函数的高阶函数
+#装饰器的作用，使用@语法，即在内茨要扩展到函数定义之前使用@+函数名
+
+
+# import  time
+# #高阶函数
+# def prinTime(f):
+# 	def wraper(*args, **kwargs):
+# 		print("time:" ,time.ctime())
+# 		return f(*args, **kwargs)
+# 	return wraper
+#
+# ##上面定义类装饰器，使用的时候需要用到@，词符号是python的语法糖
+# @prinTime
+# def hello():
+# 	print("hello world")
+#
+# hello()
+
+
+##装饰器的好处是，一点定义则可以装饰任意函数
+#一旦被其装饰，则把装饰器的功能直接添加到定义函数的功能上
+# @prinTime
+# def hello2():
+# 	print("我还有很多")
+# 	print("还有很多选择")
+#
+# hello2()
+#
+#
+# ##上面的函数使用类系统定义的语法糖
+# #下面开始动手执行下装饰器
+# #先定义函数
+# def hello3():
+# 	print("我是手动的饿")
+#
+# hello3()
+#
+# hello3 = prinTime(hello3)
+# hello3()
+
+##偏函数
+ #把字符串转化为十进制
+print(int("12346"))
+
+
