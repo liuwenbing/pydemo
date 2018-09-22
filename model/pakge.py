@@ -150,3 +150,97 @@
 
 ##生成列表两种比较方法
 
+# from datetime import datetime as dt
+# print(dt.now())
+
+#os
+
+#getcwd()
+#返回值，当前的工作目录字符串
+#import  os
+#mydir = os.getcwd()
+# print(mydir)
+#chdir
+#改变当前的工作目录
+# os.chdir('/Library/WebServer/pydemo')
+# mydir = os.getcwd()
+# print(mydir)
+
+#listdir 获取一个目录中所有子目录和文件名称的列表
+# ld = os.listdir()
+#
+# for i in ld:
+#
+# 	print(i)
+
+##makedirs 创建一个文件夹
+##当前目录下创建一个dana文件夹
+# rst = os.makedirs("dana")
+# print(rst)
+
+#system  运行系统shell命令
+#
+# rst = os.system('rm -rf dana')
+# print(rst)
+
+#getnev()  h获取系统指定的环境变量值
+# rst = os.getenv("PATH")
+# print(rst)
+
+#exit()  退出当前程序
+
+
+#
+
+# print(os.pardir)
+# print(os.curdir)
+# print(os.sep)
+# print(os.linesep)
+# print(os.name)
+
+#os.path模块
+#abspath
+
+#import  os.path as op
+# absp = op.abspath(".")
+# print(absp)
+
+#basename  获取路径的文件名
+# bn = op.basename("/Library/WebServer/pydemo/model")
+# print(bn)
+
+#join 将多个路径拼成一个路径
+
+#split 将路径切割成为文件夹部分和当前文件部分
+# print(d,p)
+# t= op.split("/Library/WebServer/pydemo/model/model.py")
+# print(t)
+#
+# d,p = op.split("/Library/WebServer/pydemo/model/model.py")
+
+
+#isdir  检测是否目录、
+# rst = op.isdir("/Library/WebServer/pydemo/model/model.py")
+# print(rst)
+
+#exists  检测文件或这目录是否存在
+# e= op.exists("//Library/WebServer/pydemo/a")
+#
+# print(e)
+
+#shuilt  模块
+#copy
+#格式 shuilt.copy
+
+
+import shutil
+
+# copy2()
+
+#copyfile  将一个文件的内容复制到另外一个文件中
+
+#move 移动文件夹/文件
+
+#归档和压缩
+#make_archive (归档操作# )
+
