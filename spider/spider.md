@@ -84,4 +84,72 @@
     - size：大小
     - http字段              
 - cookie 的保存-fileCookieJar
+- cookie的读取
+
+- ssl
+    - ssl证书就是遵守ssl安全套阶层协议服务器数字证书
+    - 美国网景公司开发
+    - ca机构
     
+    
+- js加密
+    - 有的翻爬虫策略采用js，需要传输的数据进行加密处理
+    - 经过加密，传输的就是密文，但是加密函数或者过程一定是在浏览器完成，也就是把一段代码暴露出来
+    - 通过阅读加密算法，也就可以模拟出加密啊过程，从而达到破解
+    - 过程参考案例v13
+    
+    
+- ajax
+    - 异步请求
+    - 一定会有json
+    
+    
+# Requests -         献给人类
+-继承来urllib 的所有特征
+-底层是urllib3
+- 中文文档
+-   安装 
+    - conda install charset 
+- 请求
+    - get
+        - requests.get(url)
+        - requests.request("get",url)
+        - 可以带有headers params
+        
+        
+    - get  返回内容
+        - v15        
+- post 
+    - rsp = requests.post(url,data=data)
+    - data  headers  要求dict类型
+    
+    
+- proxy 
+    - proxies= {
+        "http":""
+        "https":""
+        }
+      rsp = requests.request("get",http:'.....)  
+      
+      
+      
+- 用户验证
+    - 代理验证 
+        - 可能需要使用http basic auth
+        - 用户名：密码@代理地址： 端口地址
+        
+- cookie 
+    - requests 可以自动处理cookie信息
+        rsp = requests.get(url)
+        
+        cookirjar = rsp.cookies
+        
+        cookiedir = requests.utils.dict_from_cookiejars(cookiejar)
+        
+        
+        
+- session
+    - 跟服务器端session 不是一个
+    - 模拟一次会话，从客户端浏览器连接开始，到客户端浏览器断开
+    - 让我们跨请求保持某些参数，比如在同一个session 实例出发，所以请求之间保持cookie
+                                            
